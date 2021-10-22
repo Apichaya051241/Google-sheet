@@ -1,6 +1,9 @@
-const { addresscontroller } = require('./src/controller/address.controller');
+//const { addresscontroller } = require('./src/controller/address.controller');
 const {usercontroller} = require('./src/controller/user.controller');
+const cron = require('node-cron')
 
-
-usercontroller();
-addresscontroller();
+cron.schedule('* * * * *', () => {  
+    usercontroller();
+    //addresscontroller();
+    console.log('running a task every minute');
+});
